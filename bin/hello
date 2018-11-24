@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const cwd = process.cwd()
+const { exec } = require('child_process');
+
+const args = process.argv.slice(2);
+const argString = args.join(' ')
+
+exec(argString, { cwd }, (error, out) => {
+  if (error) {
+    console.log('error', error);
+  }
+
+  console.log('out', out);
+  process.exit(0);
+});
